@@ -15,14 +15,16 @@ function m(ul, index) {
   });
   ul[index].classList.add("active");
 }
+
 rightSlider.addEventListener("click", () => {
   if (i >= 1 && i <= 2) {
     leftSlider.style.cursor = "pointer";
     m(ul, i);
-    landing.style.backgroundImage = `url("${preloadedImages[1 + i++].src}")`;
-    if (i === 3) {
+    landing.style.backgroundImage = `url("${preloadedImages[i].src}")`;
+    if (i === 2) {
       rightSlider.style.cursor = "auto";
     }
+    i++;
   }
 });
 
@@ -30,27 +32,27 @@ leftSlider.addEventListener("click", () => {
   if (i > 1 && i <= 3) {
     m(ul, i - 2);
     rightSlider.style.cursor = "pointer";
-    landing.style.backgroundImage = `url("${preloadedImages[i-- - 1].src}")`;
-    if (i === 1) {
+    landing.style.backgroundImage = `url("${preloadedImages[i - 2].src}")`;
+    if (i === 3) {
       leftSlider.style.cursor = "auto";
     }
+    i--;
   }
 });
 
-//end slider
-//start active in landing classes
-let ul = document.querySelectorAll(".landing .shape li");
+// ...
+
 ul.forEach((li) => {
   li.addEventListener("click", () => {
     ul.forEach((li) => {
       li.classList.remove("active");
     });
-    i = parseInt(li.getAttribute("index"));
-    ul[i - 1].classList.add("active");
-    if (i - 1 === 2) {
+    i = parseInt(li.getAttribute("index")) - 1;
+    ul[i].classList.add("active");
+    if (i === 2) {
       rightSlider.style.cursor = "auto";
       leftSlider.style.cursor = "pointer";
-    } else if (i - 1 === 0) {
+    } else if (i === 0) {
       leftSlider.style.cursor = "auto";
     } else {
       rightSlider.style.cursor = "pointer";
