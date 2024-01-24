@@ -33,7 +33,7 @@ leftSlider.addEventListener("click", () => {
     m(ul, i - 2);
     rightSlider.style.cursor = "pointer";
     landing.style.backgroundImage = `url("${preloadedImages[i - 2].src}")`;
-    if (i <= 1 ) {
+    if (i === 2 ) {
       leftSlider.style.cursor = "auto";
     }
     i--;
