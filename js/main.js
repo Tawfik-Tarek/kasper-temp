@@ -40,8 +40,7 @@ leftSlider.addEventListener("click", () => {
   }
 });
 
-// ...
-
+let ul = document.querySelectorAll(".landing .shape li");
 ul.forEach((li) => {
   li.addEventListener("click", () => {
     ul.forEach((li) => {
