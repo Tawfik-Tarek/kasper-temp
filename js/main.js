@@ -1,21 +1,31 @@
+let preloadedImages = [];
+for (let j = 1; j <= 3; j++) {
+  let img = new Image();
+  img.src = `./images/slider/bg${j}.jpg`;
+  preloadedImages.push(img);
+}
+
 let landing = document.querySelector(".landing");
 let rightSlider = document.querySelector(".right-click");
 let leftSlider = document.querySelector(".left-click");
 let i = 2;
+
 function m(ul, index) {
   ul.forEach((li) => {
     li.classList.remove("active");
   });
   ul[index].classList.add("active");
 }
+
 rightSlider.addEventListener("click", () => {
   if (i >= 1 && i <= 2) {
     leftSlider.style.cursor = "pointer";
     m(ul, i);
-    landing.style.backgroundImage = `url("./images/slider/bg${1 + i++}.jpg")`;
+    landing.style.backgroundImage = `url("${preloadedImages[i - 1].src}")`; // Use preloaded image
     if (i === 3) {
       rightSlider.style.cursor = "auto";
     }
+    i++;
   }
 });
 
@@ -23,10 +33,11 @@ leftSlider.addEventListener("click", () => {
   if (i > 1 && i <= 3) {
     m(ul, i - 2);
     rightSlider.style.cursor = "pointer";
-    landing.style.backgroundImage = `url("./images/slider/bg${i-- - 1}.jpg")`;
+    landing.style.backgroundImage = `url("${preloadedImages[i - 2].src}")`; // Use preloaded image
     if (i === 1) {
       leftSlider.style.cursor = "auto";
     }
+    i--;
   }
 });
 
