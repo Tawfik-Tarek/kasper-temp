@@ -21,7 +21,7 @@ rightSlider.addEventListener("click", () => {
   if (i >= 1 && i <= 2) {
     leftSlider.style.cursor = "pointer";
     m(ul, i);
-    landing.style.backgroundImage = `url("${preloadedImages[i - 1].src}")`; // Use preloaded image
+    landing.style.backgroundImage = `url("${preloadedImages[i - 1].src}")`; 
     if (i === 3) {
       rightSlider.style.cursor = "auto";
     }
@@ -33,7 +33,7 @@ leftSlider.addEventListener("click", () => {
   if (i > 1 && i <= 3) {
     m(ul, i - 2);
     rightSlider.style.cursor = "pointer";
-    landing.style.backgroundImage = `url("${preloadedImages[i - 2].src}")`; // Use preloaded image
+    landing.style.backgroundImage = `url("${preloadedImages[i - 2].src}")`; 
     if (i === 1) {
       leftSlider.style.cursor = "auto";
     }
@@ -60,7 +60,7 @@ ul.forEach((li) => {
       rightSlider.style.cursor = "pointer";
       leftSlider.style.cursor = "pointer";
     }
-    landing.style.backgroundImage = `url("./images/slider/bg${i}.jpg")`;
+    landing.style.backgroundImage = `url("${preloadedImages[i].src}")`;
   });
 });
 
