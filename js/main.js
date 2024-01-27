@@ -1,3 +1,4 @@
+// image preloaded
 let preloadedImages = [];
 for (let j = 1; j <= 3; j++) {
   let img = new Image();
@@ -33,7 +34,7 @@ leftSlider.addEventListener("click", () => {
     m(ul, i - 2);
     rightSlider.style.cursor = "pointer";
     landing.style.backgroundImage = `url("${preloadedImages[i - 2].src}")`;
-    if (i === 2 ) {
+    if (i === 2) {
       leftSlider.style.cursor = "auto";
     }
     i--;
@@ -104,3 +105,17 @@ window.onscroll = () => {
   }
 };
 // end count
+
+//links active
+let links = document.querySelectorAll(".links li a");
+console.log(links);
+links.forEach((link) => {
+  link.addEventListener("click", () => {
+    links.forEach((link) => {
+      link.classList.remove("active");
+    });
+    link.classList.add("active");
+    console.log(links);
+  });
+});
+//end links active

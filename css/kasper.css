@@ -8,6 +8,7 @@
 /*start global rules  */
 html {
   -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 * {
   -webkit-box-sizing: border-box;
@@ -45,9 +46,6 @@ ul {
   .container {
     width: 1170px;
   }
-}
-html {
-  scroll-behavior: smooth;
 }
 /* end global rules */
 /* start components */
@@ -142,7 +140,7 @@ nav ul li a {
 .form:hover {
   cursor: pointer;
 }
-.ative,
+.active,
 nav ul li a:hover {
   color: var(--main-color);
   border-bottom: 1px solid var(--main-color);
@@ -375,7 +373,7 @@ nav ul li a:hover {
   justify-content: center;
   gap: 32px;
 }
-.portfolio nav ul .active,
+.portfolio nav .active,
 .portfolio nav ul li:hover {
   background-color: rgb(15, 116, 143);
   color: white;
