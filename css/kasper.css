@@ -95,6 +95,16 @@ header {
   position: absolute;
   width: 100%;
 }
+header.active {
+  background-color: black;
+  position: fixed;
+  z-index: 4;
+
+   .container::after {
+    background-color: black;
+  }
+
+}
 header .container {
   display: flex;
   position: relative;
@@ -140,10 +150,10 @@ nav ul li a {
 .form:hover {
   cursor: pointer;
 }
-.active,
+nav ul li a.active,
 nav ul li a:hover {
   color: var(--main-color);
-  border-bottom: 1px solid var(--main-color);
+  border-bottom: 3px solid var(--main-color);
 }
 .bar1 {
   display: none;
@@ -161,14 +171,19 @@ nav ul li a:hover {
     display: block;
     z-index: 3333;
     padding-right: 5px;
+    cursor: pointer;
   }
-  .bar1:hover + .links {
+  .bar1.active + .links {
     display: flex;
     flex-direction: column;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
+    text-align: center;
+    background-color: black;
+    opacity: 0.75;
+    z-index: 3333;
   }
   .links li a {
     padding: 15px;

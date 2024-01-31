@@ -108,14 +108,50 @@ window.onscroll = () => {
 
 //links active
 let links = document.querySelectorAll(".links li a");
-console.log(links);
 links.forEach((link) => {
   link.addEventListener("click", () => {
     links.forEach((link) => {
       link.classList.remove("active");
     });
     link.classList.add("active");
-    console.log(links);
   });
 });
 //end links active
+
+// start making header and nav links flexible
+
+let header = document.querySelector("header");
+let sections = document.querySelectorAll(".section");
+const navLinks = document.querySelectorAll(".parent .container nav ul li a");
+window.onscroll = () => {
+  if (window.scrollY > 0) {
+    header.classList.add("active");
+  } else {
+    header.classList.remove("active");
+  }
+
+  var current = "";
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    if (scrollY >= sectionTop - 100) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.classList.contains(current + "-link")) {
+      link.classList.add("active");
+    }
+  });
+};
+// end header & nav links
+
+// start bar menu
+let bar = document.querySelector(".bar1");
+
+bar.addEventListener("click", () => {
+  document.querySelector(".links").classList.toggle("active");
+  bar.classList.toggle("active");
+});
